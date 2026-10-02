@@ -14,6 +14,7 @@ import {
 import bs58 from 'bs58';
 
 import {useAuthorization, Account} from './providers/AuthorizationProvider';
+import NftTransferCard from './NftTransferCard';
 import {
   fetchChallenge,
   verifyOwnership,
@@ -149,6 +150,8 @@ export default function RoboPayDashboard({
           )}
 
           <Button title="Refresh" onPress={checkOwnership} />
+
+          <NftTransferCard machineId={data.nft.machine_id} />
         </View>
       )}
     </View>

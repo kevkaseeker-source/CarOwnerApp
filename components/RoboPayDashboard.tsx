@@ -56,7 +56,7 @@ export default function RoboPayDashboard({
       });
 
       const result = await verifyOwnership(
-        selectedAccount.address,
+        selectedAccount.publicKey.toBase58(),
         message,
         bs58.encode(signatureBytes),
       );

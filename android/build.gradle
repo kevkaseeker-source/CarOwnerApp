@@ -6,9 +6,10 @@ buildscript {
         minSdkVersion = 21
         compileSdkVersion = 33
         targetSdkVersion = 33
-        // Bumped from RN 0.71's default (1.7.1) - @walletconnect/react-native-compat's
-        // bundled native module ships classes compiled with Kotlin 1.9.22 and fails
-        // to compile against anything older.
+        // Bumped from RN 0.71's default (1.7.1) - @walletconnect/sign-client's own
+        // dependencies (not @walletconnect/react-native-compat, which this project
+        // deliberately doesn't use) require Kotlin 1.9.22 and fail to compile
+        // against anything older.
         kotlinVersion = "1.9.22"
 
         // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.

@@ -101,7 +101,7 @@ export function EvmWalletProvider({children}: {children: ReactNode}) {
       const {uri, approval} = await client.connect({
         requiredNamespaces: {
           eip155: {
-            methods: ['eth_sendTransaction', 'personal_sign'],
+            methods: ['eth_sendTransaction'],
             chains: [`eip155:${PEAQ_CHAIN_ID}`],
             events: ['chainChanged', 'accountsChanged'],
           },

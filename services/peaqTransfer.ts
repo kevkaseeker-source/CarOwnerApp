@@ -20,7 +20,6 @@
 import {ethers} from 'ethers';
 
 export const PEAQ_CHAIN_ID = 3338;
-export const PEAQ_CHAIN_ID_HEX = '0xd0a'; // 3338 in hex, for wallet_switchEthereumChain / eth_sendTransaction
 export const PEAQ_RPC_URL = 'https://peaq.api.onfinality.io/public';
 export const MACHINE_REGISTRY_ADDRESS = '0x64b93Cc29b251fAFa83BD110cDB1C24207f85536';
 
@@ -61,6 +60,9 @@ export function buildTransferMachineTx(
   try {
     tokenId = BigInt(machineId);
   } catch (e) {
+    throw new InvalidAddressError(`machineId is not a valid uint256: ${machineId}`);
+  }
+  if (tokenId < 0n) {
     throw new InvalidAddressError(`machineId is not a valid uint256: ${machineId}`);
   }
 
